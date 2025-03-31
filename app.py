@@ -3,6 +3,13 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
+import sklearn
+print(sklearn.__version__)
+
+from joblib import dump, load
+dump(model, 'model.joblib')
+model = load('model.joblib')
+
 # Load the Random Forest CLassifier model
 filename = 'heart-disease-prediction-knn-model.pkl'
 model = pickle.load(open(filename, 'rb'))
